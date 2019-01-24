@@ -1,0 +1,14 @@
+main.c:4:6:InitGPIOC	16	static
+main.c:14:6:InitUsart2	32	static
+main.c:40:6:InitPwm	40	static
+main.c:70:6:InitSPI	32	static
+main.c:97:6:InitI2C	32	static
+main.c:118:6:InitUsart	32	static
+main.c:145:5:sendData	16	static
+main.c:152:5:getData	16	static
+main.c:160:9:transceive	32	static
+main.c:171:6:i2c_start	8	static
+main.c:177:6:i2c_stop	8	static
+main.c:183:6:i2CWrite	32	static
+main.c:201:10:read	40	static
+main.c:222:5:main	216	static
