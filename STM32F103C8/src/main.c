@@ -198,7 +198,7 @@ void i2CWrite(uint8_t devAddr, uint8_t regAddr, uint8_t* dataOut, uint32_t dataL
     I2C_AcknowledgeConfig(I2C1, DISABLE); //ack
 }
 
-uint32_t read(uint8_t devAddr,uint8_t regAddr, uint8_t* dataIn, uint32_t maxDataLen)
+uint32_t i2Cread(uint8_t devAddr,uint8_t regAddr, uint8_t* dataIn, uint32_t maxDataLen)
 {
 	I2C_AcknowledgeConfig(I2C1, ENABLE); //ack
 	while (!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT)); //ev5
@@ -246,7 +246,7 @@ int main()
 	tx1[1] = 0x05;
 	tx1[2] = 0x06;
 	i2c_start(); //start communication I2c
-	write(0x69,0xA0,tx1,3); // write data in I2C Communication
+	i2CWrite(0x69,0xA0,tx1,3); // write data in I2C Communication
 	i2c_stop(); //stop communication I2c
 	while(1)
 	{
@@ -256,7 +256,7 @@ int main()
 		sendData(rx1[1]);
 		sendData(rx1[2]);
 		i2c_start();
-		read(0x69,0xA0,rx1,3);
+		i2Cread(0x69,0xA0,rx1,3);
 		i2c_stop();
 
 	}
